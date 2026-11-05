@@ -1,0 +1,619 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ATERUは、看護師と腸ケアセラピストの視点から、日常に取り入れられるやさしい腸ケアをご提案します。おうち腸もみ、腸ケア講座、腸内フローラ解析など。">
+  <title>ATERU｜自分をいたわる腸ケア</title>
+
+  <style>
+    :root {
+      --green: #718a73;
+      --dark: #34483b;
+      --pale: #e5ebdd;
+      --cream: #f8f6ef;
+      --beige: #d9c6aa;
+      --white: #ffffff;
+      --text: #3e493f;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--cream);
+      font-family: "Hiragino Kaku Gothic ProN",
+        "Yu Gothic", Meiryo, sans-serif;
+      line-height: 1.9;
+      letter-spacing: .035em;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1100px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    section { padding: 100px 0; }
+
+    .eyebrow {
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      color: var(--dark);
+      line-height: 1.6;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin: 12px 0 30px;
+      font-size: clamp(26px, 3vw, 36px);
+      letter-spacing: .08em;
+    }
+
+    p { margin: 0 0 18px; }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 30px;
+      border-radius: 100px;
+      background: var(--green);
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      transition: .2s;
+    }
+
+    .button:hover {
+      background: var(--dark);
+      transform: translateY(-2px);
+    }
+
+    .button-outline {
+      background: transparent;
+      color: var(--dark);
+      border: 1px solid var(--green);
+    }
+
+    .button-outline:hover { color: white; }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(248,246,239,.97);
+      border-bottom: 1px solid #e7e7dc;
+    }
+
+    .header-inner {
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 28px;
+      letter-spacing: .15em;
+      color: var(--dark);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      font-size: 13px;
+    }
+
+    nav a:hover { color: var(--green); }
+
+    /* HERO */
+    .hero {
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 85% 20%,
+          rgba(229,235,221,.9) 0 17%,
+          transparent 17.2%),
+        linear-gradient(125deg, #f8f6ef 15%, #edf1e7 100%);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      right: -170px;
+      bottom: -190px;
+      border-radius: 50%;
+      background: rgba(217,198,170,.25);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 100px 0;
+    }
+
+    .hero-small {
+      color: var(--green);
+      font-family: Georgia, serif;
+      font-size: 16px;
+      letter-spacing: .18em;
+    }
+
+    h1 {
+      margin: 30px 0;
+      font-size: clamp(33px, 5vw, 60px);
+      letter-spacing: .09em;
+      line-height: 1.7;
+    }
+
+    .hero-description {
+      max-width: 530px;
+      font-size: 16px;
+      margin-bottom: 34px;
+    }
+
+    /* CONCEPT */
+    .concept { background: white; }
+
+    .concept-inner {
+      max-width: 730px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .concept-inner p { line-height: 2.5; }
+
+    /* OHUCHI */
+    .ohuchi { background: var(--pale); }
+
+    .ohuchi-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .visual {
+      min-height: 440px;
+      border-radius: 180px 180px 16px 16px;
+      background:
+        radial-gradient(circle at 55% 35%, #f7f5e9 0 17%, transparent 17.2%),
+        linear-gradient(145deg, #b5c6ad, #e5ebdd 65%, #d9c6aa);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 35px;
+      color: var(--dark);
+      font-family: Georgia, serif;
+      font-size: 30px;
+      letter-spacing: .1em;
+    }
+
+    .point-list {
+      padding-left: 20px;
+      margin: 25px 0 30px;
+    }
+
+    .point-list li { margin-bottom: 12px; }
+
+    .note {
+      font-size: 12px;
+      color: #647266;
+    }
+
+    /* MENU */
+    .menu { background: white; }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--cream);
+      padding: 38px;
+      border-radius: 16px;
+      border: 1px solid #eae8df;
+    }
+
+    .card-number {
+      color: var(--green);
+      font-family: Georgia, serif;
+      font-size: 14px;
+    }
+
+    .card h3 {
+      font-size: 21px;
+      margin: 14px 0;
+    }
+
+    .card p {
+      font-size: 14px;
+      margin-bottom: 0;
+    }
+
+    /* ABOUT */
+    .about { background: #f1f1e8; }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about-mark {
+      min-height: 320px;
+      border: 1px solid #b8c5b5;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--green);
+      font-family: Georgia, serif;
+      font-size: 46px;
+      letter-spacing: .14em;
+    }
+
+    /* FAQ */
+    .faq { background: white; }
+
+    .faq-list {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    details {
+      border-bottom: 1px solid #dce3d8;
+      padding: 22px 0;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    details p {
+      margin: 16px 0 0;
+      padding-left: 18px;
+      font-size: 14px;
+    }
+
+    /* CONTACT */
+    .contact {
+      text-align: center;
+      background: var(--pale);
+    }
+
+    .contact p { margin-bottom: 30px; }
+
+    .contact-note {
+      margin-top: 18px;
+      font-size: 13px;
+    }
+
+    footer {
+      padding: 45px 0;
+      background: var(--dark);
+      color: white;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: Georgia, serif;
+      font-size: 26px;
+      letter-spacing: .18em;
+    }
+
+    footer small {
+      display: block;
+      margin-top: 12px;
+      font-size: 11px;
+      opacity: .8;
+    }
+
+    /* MOBILE */
+    @media (max-width: 760px) {
+      section { padding: 70px 0; }
+
+      .header-inner {
+        padding: 15px 0;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .logo { font-size: 25px; }
+
+      nav {
+        gap: 8px 17px;
+        justify-content: center;
+        font-size: 11px;
+      }
+
+      .hero { min-height: 560px; }
+
+      .hero-content { padding: 75px 0; }
+
+      h1 { font-size: 34px; }
+
+      .hero-description { font-size: 14px; }
+
+      .ohuchi-layout,
+      .card-grid,
+      .about-inner {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .visual { min-height: 330px; }
+
+      .card { padding: 28px; }
+
+      .about-mark { min-height: 210px; }
+
+      .concept-inner p { line-height: 2.2; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container header-inner">
+      <a href="#top" class="logo">ATERU</a>
+      <nav aria-label="メインメニュー">
+        <a href="#concept">想い</a>
+        <a href="#ohuchi">おうち腸もみ</a>
+        <a href="#menu">メニュー</a>
+        <a href="#about">ATERUについて</a>
+        <a href="#contact">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero" id="top">
+      <div class="container hero-content">
+        <div class="hero-small">Gut care & self kindness</div>
+        <h1>
+          自分のお腹に、<br>
+          やさしく向き合う時間を。
+        </h1>
+        <p class="hero-description">
+          忙しい毎日の中で、少しだけ自分をいたわる。<br>
+          ATERUは、腸ケアを通して<br>
+          自分のからだと向き合う時間をお届けします。
+        </p>
+        <a class="button" href="#ohuchi">おうち腸もみを知る</a>
+      </div>
+    </section>
+
+    <section class="concept" id="concept">
+      <div class="container concept-inner">
+        <div class="eyebrow">Our philosophy</div>
+        <h2>腸ケアを、もっと身近に。</h2>
+        <p>
+          家族のこと、仕事のこと、日々の暮らし。<br>
+          気づけば、自分のことは後回し。
+        </p>
+        <p>
+          そんな毎日の中でも、<br>
+          お腹にそっと手を当てる時間なら<br>
+          つくれるかもしれません。
+        </p>
+        <p>
+          完璧な腸活を目指すのではなく、<br>
+          自分のからだを知り、感じ、いたわること。
+        </p>
+        <p>
+          ATERUは、無理なく続けられる<br>
+          やさしい腸ケアを大切にしています。
+        </p>
+      </div>
+    </section>
+
+    <section class="ohuchi" id="ohuchi">
+      <div class="container ohuchi-layout">
+        <div class="visual" aria-hidden="true">
+          touch & care
+        </div>
+        <div>
+          <div class="eyebrow">Self gut care lesson</div>
+          <h2>おうち腸もみ</h2>
+          <p>
+            自分のお腹に触れることから始める、
+            セルフ腸もみのレッスン。
+          </p>
+          <p>
+            「知る・感じる・呼吸する・触れる」を
+            大切にしながら、日常の中で取り入れられる
+            セルフケアを学びます。
+          </p>
+          <ul class="point-list">
+            <li>オンラインからスタート予定</li>
+            <li>慣れた自宅でリラックスして受講</li>
+            <li>実践中はミュートでもOK</li>
+            <li>自分のペースでお腹に向き合う時間</li>
+          </ul>
+          <p class="note">
+            ※復習用の短い動画や対面レッスンも検討中です。
+            詳細は決まり次第ご案内します。
+          </p>
+          <a class="button" href="#contact">講座について相談する</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="menu" id="menu">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Our services</div>
+          <h2>ATERUの腸ケア</h2>
+          <p>自分に合った方法で、腸ケアを暮らしの中に。</p>
+        </div>
+
+        <div class="card-grid">
+          <article class="card">
+            <div class="card-number">01 / Treatment</div>
+            <h3>腸もみ</h3>
+            <p>
+              オールハンドでお腹にやさしく触れる
+              サロンケア。日常から少し離れて、
+              自分のからだと向き合う時間を。
+              施術の受付状況はお問い合わせください。
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-number">02 / Flora analysis</div>
+            <h3>腸内フローラ解析</h3>
+            <p>
+              腸内細菌の状態を知るための検査。
+              結果を手がかりに、普段の食生活や
+              暮らしの習慣を見つめ直すきっかけに。
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-number">03 / Gut care lesson</div>
+            <h3>腸ケア講座</h3>
+            <p>
+              腸のしくみや日々の腸ケアについて、
+              分かりやすく学ぶ講座。
+              知ることから、暮らしの選択を
+              少しずつ広げていきます。
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-number">04 / Baby & mama</div>
+            <h3>腸ケアベビマ</h3>
+            <p>
+              赤ちゃんとのふれあいを楽しみながら、
+              親子で過ごすやさしい時間。
+              子育ての中に取り入れられる
+              ケアをお伝えします。
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-inner">
+        <div class="about-mark" aria-hidden="true">ATERU</div>
+        <div>
+          <div class="eyebrow">About ATERU</div>
+          <h2>看護師として、<br>腸ケアセラピストとして。</h2>
+          <p>
+            医療の現場で培ってきた視点と、
+            腸ケアを通して学んできたこと。
+          </p>
+          <p>
+            その両方を大切にしながら、
+            一人ひとりの暮らしに寄り添う
+            腸ケアをお届けしたいと思っています。
+          </p>
+          <p>
+            腸ケアが、がんばるためのものではなく、
+            自分を大切にする時間になりますように。
+          </p>
+          <p class="note">
+            ATERU｜看護師・腸ケアセラピスト
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">FAQ</div>
+          <h2>よくあるご質問</h2>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>腸ケアが初めてでも受講できますか？</summary>
+            <p>
+              はい。おうち腸もみは、初めての方にも
+              分かりやすく学んでいただける内容を
+              目指して準備しています。
+            </p>
+          </details>
+
+          <details>
+            <summary>オンラインで受講できますか？</summary>
+            <p>
+              おうち腸もみはオンラインから
+              スタートする予定です。
+              実践中はミュートでも大丈夫です。
+            </p>
+          </details>
+
+          <details>
+            <summary>サロンの腸もみは受けられますか？</summary>
+            <p>
+              施術の受付状況は時期によって異なります。
+              最新のご案内をご確認ください。
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="eyebrow">Contact</div>
+        <h2>自分をいたわる時間を、ここから。</h2>
+        <p>
+          講座についてのご質問や、<br>
+          腸ケアメニューのご相談など、<br>
+          お気軽にお問い合わせください。
+        </p>
+        <!-- 公開前に公式LINEのリンクを設定します -->
+        <p class="contact-note">
+          お問い合わせ・お申し込みは<br>
+          公式LINEからご案内予定です。
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-logo">ATERU</div>
+      <small>自分をいたわる腸ケアを、日常に。</small>
+      <small>&copy; ATERU. All rights reserved.</small>
+    </div>
+  </footer>
+
+</body>
+</html>
